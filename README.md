@@ -165,3 +165,33 @@ git push origin patch1
 `git log`
 #### 12) Удалите локальную ветку patch1.
 `git branch -D patch1`
+### Part 3
+#### 1) Создайте новую локальную ветку `patch2`.
+`git checkout -b patch2`
+#### 2) Измените code style с помощью утилиты clang-format. Например, используя опцию `-style=Mozilla`.
+Устанавливаем clang-format командой:    
+`sudo apt install clang-format`    
+Изменяем code style командой:    
+`clang-format -style=Mozilla hello_world.cpp`
+#### 3) commit, push, создайте pull-request `patch2 -> master`.
+```
+git add hello_world.cpp
+git commit -m"hello_world.cpp with code style"
+git push origin patch2
+```
+На сайте GitHub создаём pull request patch2 -> master
+#### 4-5) Убедитесь, что в pull-request появились конфликтны.
+Появились конфликты
+#### 6) Для этого локально выполните pull + rebase (точную последовательность команд, следует узнать самостоятельно). Исправьте конфликты.
+```
+git pull --rebase origin master
+//сообщение о конфликтах
+git add hello_world.cpp
+git rebase --continue
+```
+#### 7) Сделайте force push в ветку `patch2`.
+`git push --force origin patch2`
+#### 8) Убедитель, что в pull-request пропали конфликтны.
+Конфликты пропали
+#### 9) Вмержите pull-request patch2 -> master.
+На GitHub merge patch2->master
