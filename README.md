@@ -172,7 +172,7 @@ git push origin patch1
 Устанавливаем clang-format командой:    
 `sudo apt install clang-format`    
 Изменяем code style командой:    
-`clang-format -style=Mozilla hello_world.cpp`
+`clang-format -i -style=Mozilla hello_world.cpp`
 #### 3) commit, push, создайте pull-request `patch2 -> master`.
 ```
 git add hello_world.cpp
